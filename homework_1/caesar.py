@@ -21,7 +21,7 @@ def ask_method():
             return method
 
 # ask for input
-def asḱ_text():
+def ask_text():
     while True:
         text = input("Please enter the message: ")
         if len(text) == 0:
@@ -100,7 +100,7 @@ def uncaesar(text,shift):
 
 if __name__ == "__main__":
     method = ask_method()
-    text = asḱ_text()
+    text = ask_text()
     shift = ask_shift()
     if method == 'e':
         print(caesar(text,shift))

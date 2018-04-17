@@ -18,8 +18,8 @@ def ask_pet_data():
 
 def ask_pet_destroy():
     while True:
-        action = input("You already have a pet called {0}. Destroy? (y/n): ".format(mypet.name))
-        if action.lower() not in ('y', 'n'):
+        action = input("You already have a pet called {0}. Destroy? (y/n/exit): ".format(mypet.name))
+        if action.lower() not in ('y', 'n', 'exit'):
             print("Invalid choice.")
         else:
             return action
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     mypet = None
     while True:
         try:
-            if mypet is None:
+            if mypet == None:
                 mypet = ask_pet_data()
             else:
                 raise ValueError
@@ -42,5 +42,8 @@ if __name__ == "__main__":
             elif petdestroy == 'n':
                 print("{0} was not destroyed.".format(mypet.name))
                 continue
+            elif petdestroy == 'exit':
+                print("Exiting program. Go play with {0}.".format(mypet.name))
+                break
             else:
                 print('You found a bug. Make a pull request if you figure out what it was.')

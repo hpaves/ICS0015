@@ -2,7 +2,8 @@ import string
 
 # define what alphabet means
 # this method has a problem in that it skips over the umlauts
-alphabet = string.ascii_lowercase
+# alphabet = string.ascii_lowercase
+alphabet = "abcdefghijklmnopqrsšzžtuvõäöüxy"
 
 # read input from the file for testing purposes
 def read_file():

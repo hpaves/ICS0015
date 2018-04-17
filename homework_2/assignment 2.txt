@@ -1,0 +1,9 @@
+Assignment 2:
+`````````````````````````````
+Deadline: until 19 April (before practice class)
+Worth: 10 Points
+
+Task:
+Write a program in which you have a class, and you can instantiate object of it. However, there is a restriction that you can create maximum of 1 object. When 1 single object has been created out of that class, we must not be able to create more object. Code within the class is irrelevant but it should support only one object. 
+
+Best of luck. 

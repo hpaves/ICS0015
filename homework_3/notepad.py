@@ -27,19 +27,28 @@ class MenuItems:
 
     def _open(self):
         root.filename = filedialog.askopenfilename(title = "Select file",filetypes = (("text files","*.txt"),("all files","*.*")))
-        with open(root.filename, "r+") as activefile:
+        try:
+            activefile = open(root.filename, "r+")
+        except FileNotFoundError:
+            pass
+        else:
             contents = activefile.read()
             scr.delete(1.0,END)
             scr.insert(tkinter.INSERT, contents)
+            activefile.close
 
-    def _save(self):
+    def _saveas(self):
         root.filename = filedialog.asksaveasfilename(title = "Select file",filetypes = (("text files","*.txt"),("all files","*.*")))
-        with open(root.filename, "w") as activefile:
+        try:
+            activefile = open(root.filename, "w")
+        except FileNotFoundError:
+            pass
+        else:
             contents = scr.get(1.0,END)
             activefile.write(contents)
             activefile.close
 
-    def _quit(self): 
+    def _exit(self):
         root.quit()
         root.destroy()
         exit()
@@ -56,9 +65,9 @@ hnote = MenuItems(scr)
 fileMenu = Menu(menuBar, tearoff = 0)
 fileMenu.add_command(label = 'New', command = hnote._new)
 fileMenu.add_command(label = 'Open', command = hnote._open)
-fileMenu.add_command(label = 'Save', command = hnote._save)
+fileMenu.add_command(label = 'Save As...', command = hnote._saveas)
 fileMenu.add_separator()
-fileMenu.add_command(label = 'Exit', command = hnote._quit) 
+fileMenu.add_command(label = 'Exit', command = hnote._exit)
 menuBar.add_cascade(label = 'File', menu = fileMenu)
 
 helpMenu = Menu(menuBar, tearoff = 0)

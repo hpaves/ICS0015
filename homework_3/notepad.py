@@ -54,7 +54,7 @@ class MenuItems:
         exit()
 
     def _about(self):
-        messagebox.showinfo("About", "Hnote v0.1\nBy Henri Paves\nThank you, Tauseef Ahmed")
+        messagebox.showinfo("About", "Hnote v0.1\nBy Henri Paves\nThank you, Tauseef & Madis")
 
 # Create the menu bar and the menuitems object
 menuBar = tkinter.Menu(root) 

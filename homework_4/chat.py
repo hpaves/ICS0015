@@ -2,7 +2,7 @@ import socket
 import threading
 import sys
 
-# follwed the howCode simple python chat server tutorial https://www.youtube.com/watch?v=D0SLpD7JvZI
+# followed the howCode simple python chat server tutorial https://www.youtube.com/watch?v=D0SLpD7JvZI
 
 class Server:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # using ipv4 and tcp
@@ -10,12 +10,16 @@ class Server:
     def __init__(self): # constructor
         self.sock.bind(("0.0.0.0", 10000)) # bind socket to an address:port
         self.sock.listen(1)
+        print("Server running...")
 
     def handler(self, c, a):
         while True:
             data = c.recv(1024) # when we receive data on the connection (data size)
             for connection in self.connections:
-                connection.send(data)
+                if connection == c:
+                    pass
+                else:
+                    connection.send(data)
             if not data: # when client is disconneted
                 print(str(a[0]) + ":" + str(a[1]), "disconnected") # break tuple into two
                 self.connections.remove(c)
